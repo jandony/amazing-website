@@ -1,4 +1,6 @@
-Amazing Website by Jeffrey Andony
+# Amazing Website
+
+_by Jeffrey Andony_
 
 ## NPM installs
 
@@ -7,11 +9,11 @@ Amazing Website by Jeffrey Andony
 - @material-ui/icons
 - react-animated-css
 
-##Libraries
+## Libraries
 
 1. React.js
 2. Animate.css
 
-##Frameworks
+## Frameworks
 
 1. Material UI
