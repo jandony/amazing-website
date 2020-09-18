@@ -16,34 +16,38 @@ function App() {
     section8: false,
   });
 
+  const testArray = () => {
+    console.table(visibleState);
+  };
+
+  testArray();
+
   useEffect(() => {
     // selects all section html tags
     const mySections = document.querySelectorAll("section");
-
     // midpoint of the viewport height. Also triggers at 50% of viewport height
     const options = {
       threshold: 0,
       rootMargin: "-50%",
     };
-
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         // if the entry is at the midpoint, then...
         if (entry.isIntersecting) {
-          console.log("intersected!");
-          setVisibleState({ [entry.target.id]: true });
+          const objRef = visibleState[entry.target.id];
+          console.log(entry.target.id + ": " + objRef);
+          setVisibleState({ ...visibleState, [objRef]: true });
           // else, do nothing
         } else {
           return;
         }
       });
     }, options);
-
     // our "listener" for each section
     mySections.forEach((section) => {
       observer.observe(section);
     });
-  }, [visibleState]);
+  }, []);
 
   return (
     <div className="App">
