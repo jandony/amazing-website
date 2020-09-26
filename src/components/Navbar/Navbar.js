@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     color: "grey",
   },
   navbar: {
-    paddingBottom: 0,
     display: "flex",
     left: 0,
     right: 0,
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navItem: {
     color: "black",
-    minHeight: "64px",
+    minHeight: "70px",
     borderRadius: 0,
     borderBottom: "2px solid transparent",
     "&:hover": {
@@ -63,11 +62,6 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
     borderRadius: 0,
-  },
-  title: {
-    color: "black",
-    minHeight: "50px",
-    paddingTop: "0.5rem",
   },
 }));
 
