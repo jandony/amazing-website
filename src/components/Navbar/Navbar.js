@@ -39,13 +39,13 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     alignItems: "center",
     justifyContent: "space-between",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
   mobileToolbar: {
     justifyContent: "space-between",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
   },

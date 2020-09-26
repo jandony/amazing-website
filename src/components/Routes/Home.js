@@ -1,12 +1,19 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
+// Local Project Imports
+import bgVideo from "../../media/FastTypingVideo.mp4";
+
+// Utilities
+import { makeStyles } from "@material-ui/core/styles";
 import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
+
+// Material UI Components
 import Grid from "@material-ui/core/Grid";
-import Cards from "../Cards/Cards";
 import Button from "@material-ui/core/Button";
-import bgVideo from "../../media/FastTypingVideo.mp4";
+
+// Custom Components
+import VerticalTabs from "../VerticalTabs/VerticalTabs";
 
 const useStyles = makeStyles((theme) => ({
   heroVideo: {
@@ -49,55 +56,42 @@ export default function Home() {
 
       {/* CUSTOMER LOGOS SECTION */}
       <Animated
-        animationIn="bounceInLeft"
+        animationIn="fadeInUp"
         animationInDuration={1000}
         animationInDelay={2000}
       >
-        <section>
-          <h2>Customer Logos</h2>
-          <Grid container alignItems="center">
+        <section id="companyLogos">
+          <h2>5,000+ of the world's top gyms trust Wodify to run their business</h2>
+          <Grid container alignItems="center" spacing={1}>
+
             {/* one */}
-            <Grid item xs={12} sm={6} lg={3}>
-              <Animated
-                animationIn="fadeInUp"
-                animationInDuration={1000}
-                animationInDelay={3000}
-              >
-                <Cards />
-              </Animated>
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
             </Grid>
 
             {/* two */}
-            <Grid item xs={12} sm={6} lg={3}>
-              <Animated
-                animationIn="fadeInUp"
-                animationInDuration={1000}
-                animationInDelay={3000}
-              >
-                <Cards />
-              </Animated>
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
             </Grid>
 
             {/* three */}
-            <Grid item xs={12} sm={6} lg={3}>
-              <Animated
-                animationIn="fadeInUp"
-                animationInDuration={1000}
-                animationInDelay={3000}
-              >
-                <Cards />
-              </Animated>
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
             </Grid>
 
             {/* four */}
-            <Grid item xs={12} sm={6} lg={3}>
-              <Animated
-                animationIn="fadeInUp"
-                animationInDuration={1000}
-                animationInDelay={3000}
-              >
-                <Cards />
-              </Animated>
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
+            </Grid>
+
+            {/* five */}
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
+            </Grid>
+
+            {/* six */}
+            <Grid item xs={12} sm={6} md={4} lg={2}>
+              <div className="placeholder">Logo</div>
             </Grid>
           </Grid>
         </section>
@@ -105,8 +99,10 @@ export default function Home() {
 
       {/* FEATURES SECTION */}
       <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
-          <h2>Features</h2>
+        <section id="features">
+          <h2>Start with a strong foundation: Wodify Core</h2>
+          <p>Build community, increase retention, and grow your business.</p>
+          <VerticalTabs />
         </section>
       </AnimatedOnScroll>
 

@@ -1,3 +1,9 @@
+// Router CSS
+.switch-wrapper {
+  position: relative;
+}
+
+// Main CSS
 html {
   body {
     background-color: #ced3d3;
@@ -19,8 +25,9 @@ code {
   margin: 0 auto;
 }
 
+// Global Sections CSS
 section {
-  /* margin-bottom: 1rem; */
+  margin-bottom: 1rem;
   background: white;
   padding: 2rem;
   display: flex;
@@ -28,20 +35,20 @@ section {
   min-height: 35vh;
 
   h2 {
+    font-size: 2rem;
     text-align: center;
-    border-bottom: 1px solid lightgrey;
-    width: 50%;
     margin: 0 auto;
+    padding: 3rem;
   }
 }
 
+// Hero Section CSS
 .hero {
   padding: 0;
   margin-top: 0;
   background-image: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
   background-size: cover;
   background-position: center;
-  // min-height: 75vh;
   justify-content: center;
   align-items: center;
 
@@ -72,20 +79,38 @@ section {
     background: white;
     opacity: 0.25;
   }
+
+  #myVideo {
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
 }
 
-.forest:hover {
-  transform: scale(1.05);
-  transition: all 0.5s ease-in-out;
+// Placeholders
+.placeholder {
+  height: 100px;
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.switch-wrapper {
-  position: relative;
-}
-#myVideo {
-  z-index: 1000;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+// Logo Section CSS
+
+// Features Section CSS
+#features {
+  h2 {
+    font-size: 3rem;
+    padding-bottom: 0;
+  }
+  p {
+    font-size: 2rem;
+    margin-top: 0;
+    text-align: center;
+    color: grey;
+  }
 }
