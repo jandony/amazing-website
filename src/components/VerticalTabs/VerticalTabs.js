@@ -46,22 +46,58 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        margin: "0 auto",
+        justifyContent: "center",
+        width: "100%",
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
-        width: "25%",
+        width: "15%",
     },
     panel: {
+        width: "75%",
+        height: "700px",
     }
 }));
 
 export default function VerticalTabs() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+    const [visibility, setVisibility] = React.useState({
+        slide0: true,
+        slide1: true,
+        slide2: true,
+        slide3: true,
+        slide4: true,
+        slide5: true,
+    });
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        const prevSlide = visibility[`slide${currentSlide}`];
+        // const nextSlide = visibility[`slide${newValue}`]
+
+        console.log("Previous slide: " + currentSlide);
+        console.log("Previous visibility: " + visibility[`slide${currentSlide}`]);
+        console.log("Next slide: " + newValue);
+        console.log("Next visibility: " + visibility[`slide${newValue}`]);
+        console.log("----");
+
+        if (prevSlide) {
+            setVisibility({
+                ...visibility,
+                [`slide${currentSlide}`]: false,
+                [`slide${newValue}`]: true
+            });
+        } else {
+            setVisibility({
+                ...visibility,
+                [`slide${currentSlide}`]: true,
+            });
+        }
+
+
+
+        // setVisibility({ ...visibility, [`slide${newValue}`]: true });
+        setTimeout(() => setCurrentSlide(newValue), 1000);
     };
 
     return (
@@ -69,7 +105,7 @@ export default function VerticalTabs() {
             <Tabs
                 orientation="vertical"
                 variant="scrollable"
-                value={value}
+                value={currentSlide}
                 onChange={handleChange}
                 aria-label="Vertical tabs example"
                 className={classes.tabs}
@@ -81,36 +117,38 @@ export default function VerticalTabs() {
                 <Tab label="Item Five" {...a11yProps(4)} />
                 <Tab label="Item Six" {...a11yProps(5)} />
             </Tabs>
-            <TabPanel value={value} index={0} className={classes.panel}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1323&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1476611317561-60117649dd94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
-            <TabPanel value={value} index={5}>
-                <Animated animationIn="fadeInRight" animationInDuration={1000}>
-                    <img src="https://images.unsplash.com/photo-1600741476293-0a8671befb55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80" alt="community" height="500" width="auto" />
-                </Animated>
-            </TabPanel>
+            <div className={classes.panel}>
+                <TabPanel value={currentSlide} index={0}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide0}>
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+                <TabPanel value={currentSlide} index={1}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide1}>
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+                <TabPanel value={currentSlide} index={2}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide2}>
+                        <img src="https://images.unsplash.com/photo-1448387473223-5c37445527e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+                <TabPanel value={currentSlide} index={3}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide3}>
+                        <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1323&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+                <TabPanel value={currentSlide} index={4}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide4}>
+                        <img src="https://images.unsplash.com/photo-1476611317561-60117649dd94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+                <TabPanel value={currentSlide} index={5}>
+                    <Animated animationIn="fadeInRight" animationInDuration={1000} animationOut="fadeOut" animationOutDuration={1000} isVisible={visibility.slide5}>
+                        <img src="https://images.unsplash.com/photo-1600741476293-0a8671befb55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80" alt="community" />
+                    </Animated>
+                </TabPanel>
+            </div> {/* end of panels */}
         </div>
     );
 }
