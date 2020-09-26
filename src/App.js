@@ -22,9 +22,7 @@ function App() {
           className="switch-wrapper"
         >
           <Route exact path="/" component={Home} />
-
           <Route exact path="/pricing" component={Pricing} />
-
           <Route exact path="/support" component={Support} />
         </AnimatedSwitch>
       </Router>
