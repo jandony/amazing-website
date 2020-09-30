@@ -44,7 +44,6 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      {NumOfLogos}
       {/* HERO SECTION */}
       <Animated
         animationIn="fadeIn"
