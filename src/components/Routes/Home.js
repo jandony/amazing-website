@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Local Project Imports
 import bgVideo from "../../media/FastTypingVideo.mp4";
 
 // Utilities
+import useDeviceDetect from "../Hooks/useDeviceDetect";
 import { makeStyles } from "@material-ui/core/styles";
 import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
@@ -39,8 +40,28 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const vhToggle = "100";
   const classes = useStyles();
+  const { isMobile } = useDeviceDetect();
 
   const [totalLogos, setTotalLogos] = useState(5);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      if (isMobile) {
+        // setTotalLogos(3);
+        console.log(isMobile);
+        alert("I am mobile!");
+      } else {
+        // setTotalLogos(5);
+        console.log(isMobile);
+        alert("I am desktop!");
+      }
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, []);
 
   return (
     <React.Fragment>
