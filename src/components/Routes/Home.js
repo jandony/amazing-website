@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Local Project Imports
 import bgVideo from "../../media/FastTypingVideo.mp4";
@@ -9,16 +9,29 @@ import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 // Material UI Components
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 // Custom Components
+import LogosCarousel from "../Carousel/LogosCarousel";
 import VerticalTabs from "../VerticalTabs/VerticalTabs";
+import FeaturesCarousel from "../Carousel/FeaturesCarousel";
 
 const useStyles = makeStyles((theme) => ({
   heroVideo: {
     [theme.breakpoints.down("sm")]: {
       display: "none",
+    },
+  },
+  featuresTabs: {
+    display: "inherit",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  featuresCarousel: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
     },
   },
 }));
@@ -27,8 +40,11 @@ export default function Home() {
   const vhToggle = "100";
   const classes = useStyles();
 
+  const [totalLogos, setTotalLogos] = useState(5);
+
   return (
     <React.Fragment>
+      {NumOfLogos}
       {/* HERO SECTION */}
       <Animated
         animationIn="fadeIn"
@@ -61,39 +77,10 @@ export default function Home() {
         animationInDelay={2000}
       >
         <section id="companyLogos">
-          <h2>5,000+ of the world's top gyms trust Wodify to run their business</h2>
-          <Grid container alignItems="center" spacing={1}>
-
-            {/* one */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-
-            {/* two */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-
-            {/* three */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-
-            {/* four */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-
-            {/* five */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-
-            {/* six */}
-            <Grid item xs={12} sm={6} md={4} lg={2}>
-              <div className="placeholder">Logo</div>
-            </Grid>
-          </Grid>
+          <h2>
+            5,000+ of the world's top gyms trust Wodify to run their business
+          </h2>
+          <LogosCarousel totalLogos={totalLogos} />
         </section>
       </Animated>
 
@@ -102,7 +89,12 @@ export default function Home() {
         <section id="features">
           <h2>Start with a strong foundation: Wodify Core</h2>
           <p>Build community, increase retention, and grow your business.</p>
-          <VerticalTabs />
+          <div className={classes.featuresTabs}>
+            <VerticalTabs />
+          </div>
+          <div className={classes.featuresCarousel}>
+            <FeaturesCarousel />
+          </div>
         </section>
       </AnimatedOnScroll>
 
