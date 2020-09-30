@@ -15,5 +15,5 @@ export default function useDeviceDetect() {
         setMobile(mobile);
     }, []);
 
-    return { isMobile };
+    return isMobile;
 }

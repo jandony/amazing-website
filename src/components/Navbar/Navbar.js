@@ -123,7 +123,6 @@ export default function Navbar(props) {
           <IconButton
             edge="start"
             className={classes.menuButton}
-            color="black"
             aria-label="menu"
           >
             <MenuIcon />
