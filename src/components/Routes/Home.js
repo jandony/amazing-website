@@ -43,19 +43,25 @@ export default function Home() {
   const { isMobile } = useDeviceDetect();
 
   const [totalLogos, setTotalLogos] = useState(5);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isMobile) {
-      // setTotalLogos(3);
-      console.log(isMobile);
-      alert("I am mobile!");
-    } else {
-      // setTotalLogos(5);
-      console.log(isMobile);
-      alert("I am desktop!");
+    if (isLoading) {
+      if (isMobile) {
+        // setTotalLogos(3);
+        console.log(isMobile);
+        alert("I am mobile!");
+      } else {
+        // setTotalLogos(5);
+        console.log(isMobile);
+        alert("I am desktop!");
+      }
     }
-  }, [isMobile])
+  }, [isLoading]);
 
+  useEffect(() => {
+    setIsLoading(true);
+  }, []);
 
   return (
     <React.Fragment>
