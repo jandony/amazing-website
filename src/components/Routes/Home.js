@@ -18,6 +18,11 @@ import VerticalTabs from "../VerticalTabs/VerticalTabs";
 // import FeaturesCarousel from "../Carousel/FeaturesCarousel";
 
 const useStyles = makeStyles((theme) => ({
+  heroSection: {
+    [theme.breakpoints.down("sm")]: {
+      height: "85vh",
+    }
+  },
   heroVideo: {
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -34,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },
-  },
+  }
 }));
 
 export default function Home() {
@@ -52,7 +57,7 @@ export default function Home() {
         animationInDelay={1000}
         animationInDuration={1000}
       >
-        <section className="hero">
+        <section className={`hero ${classes.heroSection}`}>
           <video loop autoPlay width="100%" className={classes.heroVideo}>
             <source src={bgVideo} type="video/mp4" />
           </video>
@@ -148,6 +153,6 @@ export default function Home() {
           <h2>CTA Book Now</h2>
         </section>
       </AnimatedOnScroll>
-    </React.Fragment>
+    </React.Fragment >
   );
 }
