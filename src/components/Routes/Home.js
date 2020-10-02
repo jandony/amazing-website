@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Local Project Imports
 import bgVideo from "../../media/FastTypingVideo.mp4";
@@ -15,13 +15,13 @@ import Button from "@material-ui/core/Button";
 // Custom Components
 import LogosCarousel from "../Carousel/LogosCarousel";
 import VerticalTabs from "../VerticalTabs/VerticalTabs";
-// import FeaturesCarousel from "../Carousel/FeaturesCarousel";
+import FeaturesCarousel from "../Carousel/FeaturesCarousel";
 
 const useStyles = makeStyles((theme) => ({
   heroSection: {
     [theme.breakpoints.down("sm")]: {
       height: "85vh",
-    }
+    },
   },
   heroVideo: {
     [theme.breakpoints.down("sm")]: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },
-  }
+  },
 }));
 
 export default function Home() {
@@ -47,7 +47,7 @@ export default function Home() {
   const classes = useStyles();
   const screen = window.innerWidth;
 
-  let [totalLogos, setTotalLogos] = useState(5);
+  const totalLogos = 5;
 
   return (
     <React.Fragment>
@@ -77,7 +77,6 @@ export default function Home() {
       </Animated>
 
       {/* CUSTOMER LOGOS SECTION */}
-      {/* {() => myFunction()} */}
       <Animated
         animationIn="fadeInUp"
         animationInDuration={1000}
@@ -100,7 +99,7 @@ export default function Home() {
             <VerticalTabs />
           </div>
           <div className={classes.featuresCarousel}>
-            {/* <FeaturesCarousel /> */}
+            <FeaturesCarousel />
           </div>
         </section>
       </AnimatedOnScroll>
@@ -153,6 +152,6 @@ export default function Home() {
           <h2>CTA Book Now</h2>
         </section>
       </AnimatedOnScroll>
-    </React.Fragment >
+    </React.Fragment>
   );
 }
