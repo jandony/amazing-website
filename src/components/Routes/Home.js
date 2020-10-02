@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Local Project Imports
 import bgVideo from "../../media/FastTypingVideo.mp4";
 
 // Utilities
-import useDeviceDetect from "../Hooks/useDeviceDetect";
+// import useDeviceDetect from "../Hooks/useDeviceDetect";
 import { makeStyles } from "@material-ui/core/styles";
 import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
@@ -15,7 +15,7 @@ import Button from "@material-ui/core/Button";
 // Custom Components
 import LogosCarousel from "../Carousel/LogosCarousel";
 import VerticalTabs from "../VerticalTabs/VerticalTabs";
-import FeaturesCarousel from "../Carousel/FeaturesCarousel";
+// import FeaturesCarousel from "../Carousel/FeaturesCarousel";
 
 const useStyles = makeStyles((theme) => ({
   heroVideo: {
@@ -38,30 +38,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Home() {
-  const vhToggle = "100";
+  const vhToggle = 100;
   const classes = useStyles();
-  const { isMobile } = useDeviceDetect();
+  const screen = window.innerWidth;
 
-  const [totalLogos, setTotalLogos] = useState(5);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (isLoading) {
-      if (isMobile) {
-        // setTotalLogos(3);
-        console.log(isMobile);
-        alert("I am mobile!");
-      } else {
-        // setTotalLogos(5);
-        console.log(isMobile);
-        alert("I am desktop!");
-      }
-    }
-  }, [isLoading]);
-
-  useEffect(() => {
-    setIsLoading(true);
-  }, []);
+  let [totalLogos, setTotalLogos] = useState(5);
 
   return (
     <React.Fragment>
@@ -91,6 +72,7 @@ export default function Home() {
       </Animated>
 
       {/* CUSTOMER LOGOS SECTION */}
+      {/* {() => myFunction()} */}
       <Animated
         animationIn="fadeInUp"
         animationInDuration={1000}
@@ -100,7 +82,7 @@ export default function Home() {
           <h2>
             5,000+ of the world's top gyms trust Wodify to run their business
           </h2>
-          <LogosCarousel totalLogos={totalLogos} />
+          <LogosCarousel totalLogos={screen < 600 ? 3 : totalLogos} />
         </section>
       </Animated>
 
@@ -113,7 +95,7 @@ export default function Home() {
             <VerticalTabs />
           </div>
           <div className={classes.featuresCarousel}>
-            <FeaturesCarousel />
+            {/* <FeaturesCarousel /> */}
           </div>
         </section>
       </AnimatedOnScroll>
