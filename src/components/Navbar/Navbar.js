@@ -12,6 +12,7 @@ import Zoom from "@material-ui/core/Zoom";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   scrollBtn: {
@@ -141,13 +142,60 @@ export default function Navbar(props) {
             </Button>
           </Link>
           <div id="nav-items">
-            <Button
-              className={classes.navItem}
-              endIcon={<KeyboardArrowDownIcon />}
-              onMouseEnter={onBtnHover}
-            >
-              Products
+            <div class="dropdown">
+              <Button
+                className={`${classes.navItem} dropbtn`}
+                endIcon={<KeyboardArrowDownIcon />}
+                onMouseEnter={onBtnHover}
+              >
+                Products
             </Button>
+              <div class="dropdown-content">
+                <Grid container spacing={1}>
+                  <Grid item lg={3}>
+                    <Grid container className="column1" direction="column">
+                      <h3>Category 1</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item lg={3}>
+                    <Grid container className="column2" direction="column">
+                      <h3>Category 2</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item lg={3}>
+                    <Grid container className="column3" direction="column">
+                      <h3>Category 3</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item lg={3}>
+                    <Grid container className="column4" direction="column">
+                      <h3>Category 4</h3>
+                      <a href="#">Link 1</a>
+                      <a href="#">Link 2</a>
+                      <a href="#">Link 3</a>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </div>{/* dropdown-content */}
+            </div>{/* dropdown */}
+
+
+
+
+
+
             <Button
               className={classes.navItem}
               endIcon={<KeyboardArrowDownIcon />}
