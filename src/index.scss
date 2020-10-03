@@ -10,7 +10,9 @@ html {
   body {
     background-color: #ced3d3;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Source Sans Pro", sans-serif;
@@ -18,7 +20,8 @@ html {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 #root {
@@ -55,24 +58,33 @@ section {
 
   /* Dropdown content (hidden by default) */
   .dropdown-content {
-    display: none;
     position: absolute;
     background-color: #f9f9f9;
     width: 100%;
     left: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: -1000;
     padding: 2rem 3rem;
+    margin-top: -500px;
+    transition: margin-top 0.5s ease;
+
+    h2 {
+      color: grey;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
     h3 {
-      color: black;
+      color: #f50057;
+      margin-right: 8px;
+      padding: 0.5rem;
     }
 
     /* Style links inside the columns */
     a {
       float: none;
       color: black;
-      padding: 16px;
+      padding: 8px;
       margin-right: 8px;
       text-decoration: none;
       display: block;
@@ -88,7 +100,6 @@ section {
     .column2,
     .column3 {
       border-right: 1px solid lightgrey;
-      margin: 10px 0;
     }
   }
 }
@@ -96,6 +107,20 @@ section {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  margin-top: 0px;
+}
+
+.dropdown:hover .dropbtn {
+  border-bottom: 2px solid red;
+  background-color: white;
+}
+
+.MuiButton-endIcon {
+  transition: transform 0.5s ease;
+}
+
+.dropdown:hover .dropbtn .MuiButton-endIcon {
+  transform: rotate(180deg);
 }
 
 /* Clear floats after the columns */

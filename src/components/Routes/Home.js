@@ -4,7 +4,6 @@ import React from "react";
 import bgVideo from "../../media/FastTypingVideo.mp4";
 
 // Utilities
-// import useDeviceDetect from "../Hooks/useDeviceDetect";
 import { makeStyles } from "@material-ui/core/styles";
 import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
