@@ -59,9 +59,11 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "70px",
     borderRadius: 0,
     borderBottom: "2px solid transparent",
+    opacity: 0.5,
     "&:hover": {
       borderBottom: "2px solid red",
       backgroundColor: "white",
+      opacity: 1,
     },
     textTransform: "capitalize",
   },
@@ -152,7 +154,6 @@ export default function Navbar(props) {
               </Button>
 
               <div class="dropdown-content">
-                <h2>Products</h2>
                 <Grid container spacing={1}>
                   <Grid item lg={3}>
                     <Grid container className="column1" direction="column">
@@ -203,7 +204,6 @@ export default function Navbar(props) {
                 Resources
               </Button>
               <div class="dropdown-content">
-                <h2>Resources</h2>
                 <Grid container spacing={1}>
                   <Grid item lg={3}>
                     <Grid container className="column1" direction="column">
