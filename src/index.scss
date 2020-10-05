@@ -1,56 +1,171 @@
-// Router CSS
+// Project Variables
 //--------------
-.switch-wrapper {
-  position: relative;
+/* Colors */
+$primaryColor: #833adf;
+$secondaryColor: #f50057;
+$veryLightGrey: #ced3d3;
+$bodyLight: #9b9b9b;
+$bodyDark: grey;
+
+/* Font Families */
+$fontFamilyHeaders: "Oswald";
+$fontFamilyAll: "Roboto";
+
+/* Font Size (text-heavy) */
+$fontSizeBodyText: 1rem; // body, text input, etc.
+$fontSizeH1Text: 2rem; // main title
+$fontSizeH2Text: 1.5rem; // section titles
+$fontSizeH3Text: 1.125rem; // subheadings
+$fontSizeH4Text: 0.75rem; // labels, captions, etc.
+
+/* Font Size (interaction-heavy) */
+$fontSizeBodyInteract: 1.25rem; // body, text input, etc.
+$fontSizeH1Interact: 5rem; // main title
+$fontSizeH2Interact: 2.5rem; // section titles
+$fontSizeH3Interact: 1.5rem; // subheadings
+$fontSizeH4Interact: 0.75rem; // labels, captions, etc.
+
+/* Media Queries */
+$mobile: 600px;
+$tablet: 960px;
+$desktop: 1280px;
+
+// Project Mixins
+//--------------
+/* Headers */
+@mixin h1 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH1Interact;
+  line-height: $fontSizeH1Interact;
+  text-align: center;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 2.25;
+    line-height: $fontSizeBodyInteract * 2.25;
+  }
+}
+@mixin h2 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH2Interact;
+  line-height: $fontSizeH1Interact;
+  color: $bodyDark;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 1.5;
+    line-height: $fontSizeBodyInteract * 2;
+  }
+}
+@mixin h3 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH3Interact;
+  line-height: $fontSizeH1Interact;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 1.5;
+    line-height: $fontSizeBodyInteract * 1.5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@mixin h4 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH4Interact;
+  line-height: $fontSizeH1Interact;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeH4Interact;
+    line-height: $fontSizeH4Interact;
+  }
+}
+@mixin subheading {
+  font-family: $fontFamilyAll;
+  font-size: $fontSizeH3Interact;
+  line-height: $fontSizeH3Interact;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract;
+    line-height: $fontSizeBodyInteract * 1.5;
+  }
+}
+@mixin body {
+  font-family: $fontFamilyAll;
+  font-size: $fontSizeBodyInteract;
+  line-height: $fontSizeBodyInteract * 2;
+  color: $bodyLight;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract;
+    line-height: $fontSizeBodyInteract * 2;
+  }
 }
 
 // Main CSS
 //--------------
+/* HTML */
 html {
   body {
-    background-color: #ced3d3;
+    @include body;
+    background-color: $veryLightGrey;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "Source Sans Pro", sans-serif;
   }
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+  /* Site container */
+  #root {
+    min-width: 85%;
+    max-width: 768px;
+    margin: 0 auto;
+  }
 
-#root {
-  min-width: 85%;
-  max-width: 768px;
-  margin: 0 auto;
-}
-
-// Global Sections CSS
-//--------------
-section {
-  margin-bottom: 1rem;
-  background: white;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 35vh;
+  /* Headers */
+  h1 {
+    @include h1;
+  }
 
   h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin: 0 auto;
-    padding: 3rem;
+    @include h2;
+  }
+
+  h3 {
+    @include h3;
+  }
+
+  h4 {
+    @include h4;
+  }
+
+  .subheading {
+    @include subheading;
+    color: $bodyLight;
+  }
+
+  /* Router */
+  .switch-wrapper {
+    position: relative;
+  }
+
+  /* Placeholders */
+  .placeholder {
+    height: 100px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+  }
+
+  /* All Sections CSS */
+  section {
+    margin-bottom: 1rem;
+    background: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 35vh;
+
+    h2 {
+      text-align: center;
+    }
   }
 }
 
 // Navbar CSS
 //--------------
-
 /* The dropdown container */
 .dropdown {
   float: left;
@@ -59,7 +174,7 @@ section {
   /* Dropdown content (hidden by default) */
   .dropdown-content {
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: white;
     width: 100%;
     left: 0;
     z-index: -1000;
@@ -75,17 +190,21 @@ section {
     }
 
     h3 {
-      color: #f50057;
-      margin-right: 8px;
+      color: $primaryColor;
+      font-size: $fontSizeH3Interact / 1.5;
+      margin: 0;
+      line-height: 1rem;
       padding: 0.5rem;
+      padding-bottom: 1rem;
     }
 
     /* Style links inside the columns */
     a {
       float: none;
-      color: black;
-      padding: 8px;
-      margin-right: 8px;
+      color: $bodyLight;
+      font-size: $fontSizeBodyInteract / 1.5;
+      padding: 0 0.5rem;
+      margin-right: 0.5rem;
       text-decoration: none;
       display: block;
       text-align: left;
@@ -93,7 +212,8 @@ section {
 
     /* Add a background color on hover */
     a:hover {
-      background-color: #ddd;
+      // background-color: rgb(243, 243, 243);
+      color: black;
     }
 
     .column1,
@@ -149,15 +269,16 @@ section {
     text-shadow: 3px 3px 6px rgb(82, 82, 82);
 
     h1 {
-      font-size: 50px;
-      line-height: 55px;
+      @include h1;
       font-weight: 400;
       color: white;
     }
 
     h3 {
-      font-size: 30px;
-      line-height: 38px;
+      @include h3;
+      font-family: $fontFamilyAll;
+      font-size: $fontSizeH3Interact * 1.25;
+      line-height: $fontSizeH3Interact * 1.25;
       font-weight: 400;
       color: white;
     }
@@ -166,7 +287,7 @@ section {
   .overlay {
     height: 100%;
     width: 100%;
-    background: white;
+    background: black;
     opacity: 0.25;
   }
 
@@ -177,17 +298,6 @@ section {
     min-width: 100%;
     min-height: 100%;
   }
-}
-
-// Placeholders
-//--------------
-.placeholder {
-  height: 100px;
-  background-color: lightgrey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem;
 }
 
 // Logo Section CSS
@@ -210,17 +320,6 @@ section {
 // Features Section CSS
 //--------------
 #features {
-  h2 {
-    font-size: 3rem;
-    padding-bottom: 0;
-  }
-  p {
-    font-size: 2rem;
-    margin-top: 0;
-    text-align: center;
-    color: grey;
-  }
-
   img {
     height: auto;
     width: 100%;

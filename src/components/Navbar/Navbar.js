@@ -13,7 +13,6 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Grid from "@material-ui/core/Grid";
-import { Animated } from "react-animated-css";
 
 const useStyles = makeStyles((theme) => ({
   scrollBtn: {
@@ -59,13 +58,15 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "70px",
     borderRadius: 0,
     borderBottom: "2px solid transparent",
+    fontFamily: "Roboto",
+    fontSize: "1rem",
+    textTransform: "capitalize",
     opacity: 0.5,
     "&:hover": {
       borderBottom: "2px solid red",
       backgroundColor: "white",
       opacity: 1,
     },
-    textTransform: "capitalize",
   },
   link: {
     textDecoration: "none",
@@ -157,37 +158,37 @@ export default function Navbar(props) {
                 <Grid container spacing={1}>
                   <Grid item lg={3}>
                     <Grid container className="column1" direction="column">
-                      <h3>Category 1</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Products 1</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column2" direction="column">
-                      <h3>Category 2</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Products 2</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column3" direction="column">
-                      <h3>Category 3</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Products 3</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column4" direction="column">
-                      <h3>Category 4</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Products 4</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -207,37 +208,37 @@ export default function Navbar(props) {
                 <Grid container spacing={1}>
                   <Grid item lg={3}>
                     <Grid container className="column1" direction="column">
-                      <h3>Category 1</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Resources 1</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column2" direction="column">
-                      <h3>Category 2</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Resources 2</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column3" direction="column">
-                      <h3>Category 3</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Resources 3</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
 
                   <Grid item lg={3}>
                     <Grid container className="column4" direction="column">
-                      <h3>Category 4</h3>
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
+                      <h3>Resources 4</h3>
+                      <a href="https://www.google.com/">Link 1</a>
+                      <a href="https://www.google.com/">Link 2</a>
+                      <a href="https://www.google.com/">Link 3</a>
                     </Grid>
                   </Grid>
                 </Grid>
