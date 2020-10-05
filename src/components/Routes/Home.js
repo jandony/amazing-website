@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Local Project Imports
 import bgVideo from "../../media/FastTypingVideo.mp4";
 
 // Utilities
-// import useDeviceDetect from "../Hooks/useDeviceDetect";
 import { makeStyles } from "@material-ui/core/styles";
 import { Animated } from "react-animated-css";
 import { AnimatedOnScroll } from "react-animated-css-onscroll";
@@ -15,9 +14,14 @@ import Button from "@material-ui/core/Button";
 // Custom Components
 import LogosCarousel from "../Carousel/LogosCarousel";
 import VerticalTabs from "../VerticalTabs/VerticalTabs";
-// import FeaturesCarousel from "../Carousel/FeaturesCarousel";
+import FeaturesCarousel from "../Carousel/FeaturesCarousel";
 
 const useStyles = makeStyles((theme) => ({
+  heroSection: {
+    [theme.breakpoints.down("sm")]: {
+      height: "85vh",
+    },
+  },
   heroVideo: {
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -42,7 +46,7 @@ export default function Home() {
   const classes = useStyles();
   const screen = window.innerWidth;
 
-  let [totalLogos, setTotalLogos] = useState(5);
+  const totalLogos = 5;
 
   return (
     <React.Fragment>
@@ -52,7 +56,7 @@ export default function Home() {
         animationInDelay={1000}
         animationInDuration={1000}
       >
-        <section className="hero">
+        <section className={`hero ${classes.heroSection}`}>
           <video loop autoPlay width="100%" className={classes.heroVideo}>
             <source src={bgVideo} type="video/mp4" />
           </video>
@@ -60,8 +64,8 @@ export default function Home() {
             <h1>
               The premier gym <br />
               management platform
-            </h1>
             <h3>To build the fitness business of your dreams.</h3>
+            </h1>
             <Button variant="contained" color="secondary">
               BOOK A DEMO
             </Button>
@@ -72,7 +76,6 @@ export default function Home() {
       </Animated>
 
       {/* CUSTOMER LOGOS SECTION */}
-      {/* {() => myFunction()} */}
       <Animated
         animationIn="fadeInUp"
         animationInDuration={1000}
@@ -89,13 +92,14 @@ export default function Home() {
       {/* FEATURES SECTION */}
       <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
         <section id="features">
-          <h2>Start with a strong foundation: Wodify Core</h2>
-          <p>Build community, increase retention, and grow your business.</p>
+          <h2>Start with a strong foundation: Wodify Core
+          <p className="subheading">Build community, increase retention, and grow your business.</p>
+          </h2>
           <div className={classes.featuresTabs}>
             <VerticalTabs />
           </div>
           <div className={classes.featuresCarousel}>
-            {/* <FeaturesCarousel /> */}
+            <FeaturesCarousel />
           </div>
         </section>
       </AnimatedOnScroll>
@@ -104,6 +108,14 @@ export default function Home() {
       <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
         <section>
           <h2>Add-Ons</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised
+            in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
         </section>
       </AnimatedOnScroll>
 
