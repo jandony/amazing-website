@@ -10,7 +10,7 @@ import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 // Material UI Components
 import Button from "@material-ui/core/Button";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 // Custom Components
 import LogosCarousel from "../Carousel/LogosCarousel";
@@ -69,7 +69,7 @@ export default function Home() {
             <h1>
               The premier gym <br />
               management platform
-            <h3>To build the fitness business of your dreams.</h3>
+              <h3>To build the fitness business of your dreams.</h3>
             </h1>
             <Button variant="contained" color="secondary">
               BOOK A DEMO
@@ -87,18 +87,32 @@ export default function Home() {
         animationInDelay={2000}
       >
         <section id="companyLogos">
-          <h2><p className="subheading">5,000+ of the world's top gyms trust Wodify to run their business</p></h2>
+          <h2>
+            <p className="subheading">
+              5,000+ of the world's top gyms trust Wodify to run their business
+            </p>
+          </h2>
           <div className={classes.logoBanner}>
             <LogosCarousel totalLogos={screen < 600 ? 3 : totalLogos} />
           </div>
-          <Button href="https://www.google.com" className="primary-btn" endIcon={<ChevronRightIcon />}>See More Customer Love</Button>        </section>
+          <Button
+            href="https://www.google.com"
+            className="primary-btn"
+            endIcon={<ChevronRightIcon />}
+          >
+            See More Customer Love
+          </Button>{" "}
+        </section>
       </Animated>
 
       {/* FEATURES SECTION */}
       <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
         <section id="features">
-          <h2>Start with a strong foundation: Wodify Core
-          <p className="subheading">Build community, increase retention, and grow your business.</p>
+          <h2>
+            Start with a strong foundation: Wodify Core
+            <p className="subheading">
+              Build community, increase retention, and grow your business.
+            </p>
           </h2>
           <div className={classes.featuresTabs}>
             <VerticalTabs />
@@ -112,8 +126,12 @@ export default function Home() {
       {/* ADDONS SECTION */}
       <section id="add-on">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-          <h2>More than just another gym management software
-          <p className="subheading">Tools to help you stand out from the competition and save you time, so you can focus on growing your business.</p>
+          <h2>
+            More than just another gym management software
+            <p className="subheading">
+              Tools to help you stand out from the competition and save you
+              time, so you can focus on growing your business.
+            </p>
           </h2>
           <p>Sticky Section with Tabs?</p>
         </AnimatedOnScroll>
@@ -122,7 +140,6 @@ export default function Home() {
       {/* RESOURCES SECTION */}
       <section id="resources">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-          <h2>Resources</h2>
           <Resources />
         </AnimatedOnScroll>
       </section>
