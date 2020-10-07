@@ -47,6 +47,7 @@ $desktop: 1280px;
   font-family: $fontFamilyHeaders;
   font-size: $fontSizeH2Interact;
   line-height: $fontSizeH1Interact;
+  font-weight: 400;
   color: $bodyDark;
   @media (max-width: $mobile) {
     font-size: $fontSizeBodyInteract * 1.5;
@@ -57,6 +58,7 @@ $desktop: 1280px;
   font-family: $fontFamilyHeaders;
   font-size: $fontSizeH3Interact;
   line-height: $fontSizeH1Interact;
+  font-weight: bold;
   @media (max-width: $mobile) {
     font-size: $fontSizeBodyInteract * 1.5;
     line-height: $fontSizeBodyInteract * 1.5;
@@ -107,8 +109,7 @@ html {
 
   /* Site container */
   #root {
-    min-width: 85%;
-    max-width: 768px;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -151,7 +152,6 @@ html {
 
   /* All Sections CSS */
   section {
-    margin-bottom: 1rem;
     background: white;
     padding: 2rem;
     display: flex;
@@ -160,6 +160,11 @@ html {
 
     h2 {
       text-align: center;
+    }
+
+    .primary-btn {
+      color: $primaryColor;
+      font-weight: bold;
     }
   }
 }
@@ -303,6 +308,7 @@ html {
 // Customer Logos Section CSS
 //--------------
 #companyLogos {
+  background-color: #f5f5f5;
   .logo {
     height: 100px;
     display: flex;
@@ -339,20 +345,61 @@ html {
 // Addons Section CSS
 //--------------
 
+#add-on {
+  background-color: #222222;
+  color: white;
+}
+
 // Resources Section CSS
 //--------------
+#resources {
+  .resourceCard {
+    padding: 0 2rem;
+
+    .cardIcon {
+      font-size: 4rem;
+      color: $primaryColor;
+      margin: 1rem 0;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      line-height: 2rem;
+      color: $bodyDark;
+    }
+
+    p {
+      line-height: 2rem;
+      margin-bottom: 0;
+    }
+  }
+}
 
 // CTA Signup Section CSS
 //--------------
 
+#signup {
+  background-color: #222222;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
 // Testimonials Section CSS
 //--------------
+#testimonials {
+  background-color: #f5f5f5;
+}
 
 // Benefits Section CSS
 //--------------
 
 // Community Outreach Section CSS
 //--------------
+#community {
+  background-color: #f5f5f5;
+}
 
 // CTA Booking Section CSS
 //--------------

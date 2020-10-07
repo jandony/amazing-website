@@ -10,11 +10,14 @@ import { AnimatedOnScroll } from "react-animated-css-onscroll";
 
 // Material UI Components
 import Button from "@material-ui/core/Button";
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 // Custom Components
 import LogosCarousel from "../Carousel/LogosCarousel";
 import VerticalTabs from "../VerticalTabs/VerticalTabs";
 import FeaturesCarousel from "../Carousel/FeaturesCarousel";
+import Resources from "../Resources/Resources";
+import CTASignUp from "../CTA/CTASignUp";
 
 const useStyles = makeStyles((theme) => ({
   heroSection: {
@@ -48,7 +51,6 @@ export default function Home() {
   const vhToggle = 100;
   const classes = useStyles();
   const screen = window.innerWidth;
-
   const totalLogos = 5;
 
   return (
@@ -85,13 +87,11 @@ export default function Home() {
         animationInDelay={2000}
       >
         <section id="companyLogos">
-          <h2>
-            5,000+ of the world's top gyms trust Wodify to run their business
-          </h2>
+          <h2><p className="subheading">5,000+ of the world's top gyms trust Wodify to run their business</p></h2>
           <div className={classes.logoBanner}>
             <LogosCarousel totalLogos={screen < 600 ? 3 : totalLogos} />
           </div>
-        </section>
+          <Button href="https://www.google.com" className="primary-btn" endIcon={<ChevronRightIcon />}>See More Customer Love</Button>        </section>
       </Animated>
 
       {/* FEATURES SECTION */}
@@ -110,61 +110,57 @@ export default function Home() {
       </AnimatedOnScroll>
 
       {/* ADDONS SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
-          <h2>Add-Ons</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised
-            in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-        </section>
-      </AnimatedOnScroll>
+      <section id="add-on">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
+          <h2>More than just another gym management software
+          <p className="subheading">Tools to help you stand out from the competition and save you time, so you can focus on growing your business.</p>
+          </h2>
+          <p>Sticky Section with Tabs?</p>
+        </AnimatedOnScroll>
+      </section>
 
       {/* RESOURCES SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
+      <section id="resources">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <h2>Resources</h2>
-        </section>
-      </AnimatedOnScroll>
+          <Resources />
+        </AnimatedOnScroll>
+      </section>
 
       {/* CTA SIGNUP SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
-          <h2>CTA Sign Up</h2>
-        </section>
-      </AnimatedOnScroll>
+      <section id="signup">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
+          <CTASignUp />
+        </AnimatedOnScroll>
+      </section>
 
       {/* TESTIMONIALS SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
+      <section id="testimonials">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <h2>Testimonials</h2>
-        </section>
-      </AnimatedOnScroll>
+        </AnimatedOnScroll>
+      </section>
 
       {/* BENEFITS SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
+      <section id="benefits">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <h2>Benefits</h2>
-        </section>
-      </AnimatedOnScroll>
+        </AnimatedOnScroll>
+      </section>
 
       {/* COMMUNITY OUTREACH SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
+      <section id="community">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <h2>Outreach</h2>
-        </section>
-      </AnimatedOnScroll>
+        </AnimatedOnScroll>
+      </section>
 
       {/* CTA BOOKING SECTION */}
-      <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
-        <section>
+      <section id="booking">
+        <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <h2>CTA Book Now</h2>
-        </section>
-      </AnimatedOnScroll>
+        </AnimatedOnScroll>
+      </section>
     </React.Fragment>
   );
 }
