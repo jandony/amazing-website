@@ -166,6 +166,12 @@ html {
       color: $primaryColor;
       font-weight: bold;
     }
+
+    .primary-btn-filled {
+      color: white;
+      background-color: $primaryColor;
+      margin: 2rem 0;
+    }
   }
 }
 
@@ -384,6 +390,69 @@ html {
   color: white;
   justify-content: center;
   align-items: center;
+
+  #signUpColumn1 {
+    padding-left: 10rem;
+    @media (max-width: $mobile) {
+      padding-left: 1rem;
+    }
+  }
+
+  #signUpColumn2 {
+    padding-right: 10rem;
+    @media (max-width: $mobile) {
+      padding-right: 1rem;
+    }
+  }
+
+  .signUpColumn {
+    padding: 3rem;
+    text-align: left;
+
+    h2 {
+      text-align: left;
+    }
+
+    @media (max-width: $mobile) {
+      text-align: center;
+      padding: 1rem;
+
+      h2 {
+        text-align: center;
+      }
+    }
+
+    #email-form {
+      width: 100%;
+      color: white;
+
+      .MuiFormControl-root {
+        width: 100%;
+      }
+
+      .MuiInputLabel-root {
+        color: white;
+      }
+
+      .MuiFilledInput-root {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .MuiFilledInput-underline:after {
+        border-bottom: 2px solid $primaryColor;
+      }
+
+      #email-input {
+        width: 100%;
+        color: white;
+      }
+    }
+
+    #signUpPhoto {
+      height: 100%;
+      justify-content: center;
+    }
+  }
 }
 
 // Testimonials Section CSS
