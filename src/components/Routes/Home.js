@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  logoBanner: {
+    backgroundColor: "#f5f5f5",
+  },
   featuresTabs: {
     display: "inherit",
     [theme.breakpoints.down("sm")]: {
@@ -85,7 +88,9 @@ export default function Home() {
           <h2>
             5,000+ of the world's top gyms trust Wodify to run their business
           </h2>
-          <LogosCarousel totalLogos={screen < 600 ? 3 : totalLogos} />
+          <div className={classes.logoBanner}>
+            <LogosCarousel totalLogos={screen < 600 ? 3 : totalLogos} />
+          </div>
         </section>
       </Animated>
 
