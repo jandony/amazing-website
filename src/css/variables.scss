@@ -1,0 +1,29 @@
+/* Colors */
+$primaryColor: #833adf;
+$secondaryColor: #f50057;
+$veryLightGrey: #ced3d3;
+$bodyLight: #9b9b9b;
+$bodyDark: grey;
+
+/* Font Families */
+$fontFamilyHeaders: "Oswald";
+$fontFamilyAll: "Roboto";
+
+/* Font Size (text-heavy) */
+$fontSizeBodyText: 1rem; // body, text input, etc.
+$fontSizeH1Text: 2rem; // main title
+$fontSizeH2Text: 1.5rem; // section titles
+$fontSizeH3Text: 1.125rem; // subheadings
+$fontSizeH4Text: 0.75rem; // labels, captions, etc.
+
+/* Font Size (interaction-heavy) */
+$fontSizeBodyInteract: 1.25rem; // body, text input, etc.
+$fontSizeH1Interact: 5rem; // main title
+$fontSizeH2Interact: 2.5rem; // section titles
+$fontSizeH3Interact: 1.5rem; // subheadings
+$fontSizeH4Interact: 0.75rem; // labels, captions, etc.
+
+/* Media Queries */
+$mobile: 600px;
+$tablet: 960px;
+$desktop: 1280px;
