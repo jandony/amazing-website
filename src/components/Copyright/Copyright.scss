@@ -9,6 +9,19 @@
     padding: 0.1rem;
   }
 
+  #copyrightMobile {
+    display: none;
+    @media (max-width: $mobile) {
+      display: block;
+    }
+  }
+
+  #copyrightDesktop {
+    display: block;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
   p {
     line-height: 1rem;
     font-size: 0.75rem;

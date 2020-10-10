@@ -14,7 +14,13 @@ export default function Copyright(props) {
 
   return (
     <div id="copyright">
-      <p>© 2020 Jeff Andony Web Development. All rights reserved.</p>
+      <p id="copyrightMobile">
+        © 2020 Jeff Andony Web Development. <br />
+        All rights reserved.
+      </p>
+      <p id="copyrightDesktop">
+        © 2020 Jeff Andony Web Development. All rights reserved.
+      </p>
     </div>
   );
 }
