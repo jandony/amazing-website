@@ -1,14 +1,15 @@
 import React from "react";
+
+// Utilities
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
 
-// import { Animated } from "react-animated-css";
-// import { AnimatedOnScroll } from "react-animated-css-onscroll";
-
+// Main Components
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Routes/Home";
 import Pricing from "./components/Routes/Pricing";
 import Support from "./components/Routes/Support";
+import Copyright from "./components/Copyright/Copyright";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/pricing" component={Pricing} />
           <Route exact path="/support" component={Support} />
         </AnimatedSwitch>
+        <Copyright />
       </Router>
     </div> // App (div)
   );

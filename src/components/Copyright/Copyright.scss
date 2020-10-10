@@ -1,0 +1,17 @@
+#copyright {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  @media (max-width: $mobile) {
+    position: relative;
+    padding: 0.1rem;
+  }
+
+  p {
+    line-height: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
