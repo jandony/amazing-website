@@ -56,6 +56,28 @@
   }
 }
 
+/* Dropdown Mobile */
+#dropdown-mobile {
+  display: block;
+  position: absolute;
+  top: 62px;
+  transition: margin-top 0.5s ease;
+  margin-top: -500px;
+  z-index: -100;
+  background-color: $veryLightGrey;
+  border-top: 1px solid $veryLightGrey;
+
+  .MuiAccordion-root {
+    padding: 0.5rem 0;
+  }
+
+  .MuiAccordion-root.Mui-expanded {
+    margin: 0;
+    border-top: 1px solid $veryLightGrey;
+    border-bottom: 1px solid $veryLightGrey;
+  }
+}
+
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;

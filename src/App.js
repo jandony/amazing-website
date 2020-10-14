@@ -29,7 +29,6 @@ function App() {
         <Copyright />
       </Router>
     </div> // App (div)
-    
   );
 }
 

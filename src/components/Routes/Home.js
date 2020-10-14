@@ -14,10 +14,6 @@ import Features from "../Features/Features";
 import Addons from "../Addons/Addons";
 import Resources from "../Resources/Resources";
 import CTASignUp from "../CTA/CTASignUp";
-import Testimonials from "../Testimonials/Testimonials";
-import Benefits from "../Benefits/Benefits";
-import Community from "../Community/Community";
-import CTABooking from "../CTA/CTABooking";
 import Footer from "../Footer/Footer";
 
 // const useStyles = makeStyles((theme) => ({}));
@@ -58,7 +54,6 @@ export default function Home() {
         </AnimatedOnScroll>
       </section>
 
-      {/* RESOURCES SECTION */}
       <section id="resources">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <Resources />
@@ -73,32 +68,32 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <section id="testimonials">
+      {/* <section id="testimonials">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <Testimonials />
         </AnimatedOnScroll>
-      </section>
+      </section> */}
 
       {/* BENEFITS SECTION */}
-      <section id="benefits">
+      {/* <section id="benefits">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <Benefits />
         </AnimatedOnScroll>
-      </section>
+      </section> */}
 
       {/* COMMUNITY OUTREACH SECTION */}
-      <section id="community">
+      {/* <section id="community">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <Community />
         </AnimatedOnScroll>
-      </section>
+      </section> */}
 
       {/* CTA BOOKING SECTION */}
-      <section id="booking">
+      {/* <section id="booking">
         <AnimatedOnScroll animationIn="fadeInUp" screenOffset={vhToggle}>
           <CTABooking />
         </AnimatedOnScroll>
-      </section>
+      </section> */}
 
       {/* FOOTER SECTION */}
       <Animated

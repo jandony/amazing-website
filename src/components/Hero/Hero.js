@@ -34,7 +34,7 @@ export default function Hero(props) {
         <h1>
           The premier gym <br />
           management platform
-          <h3>To build the fitness business of your dreams.</h3>
+          <p>To build the fitness business of your dreams.</p>
         </h1>
         <Button variant="contained" color="secondary">
           BOOK A DEMO
