@@ -1,0 +1,26 @@
+#features {
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  .slideTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    margin: 0.5rem;
+  }
+
+  h3 {
+    color: $primaryColor;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 1.75rem;
+  }
+}

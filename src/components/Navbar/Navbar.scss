@@ -1,0 +1,106 @@
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    left: 0;
+    z-index: -1000;
+    padding: 2rem 3rem;
+    margin-top: -500px;
+    transition: margin-top 0.5s ease;
+
+    h2 {
+      color: grey;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    h3 {
+      color: $primaryColor;
+      font-size: $fontSizeH3Interact / 1.5;
+      margin: 0;
+      line-height: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Style links inside the columns */
+    a {
+      float: none;
+      color: $bodyLight;
+      font-size: $fontSizeBodyInteract / 1.5;
+      padding: 0 0.5rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    /* Add a background color on hover */
+    a:hover {
+      // background-color: rgb(243, 243, 243);
+      color: black;
+    }
+
+    .column1,
+    .column2,
+    .column3 {
+      border-right: 1px solid lightgrey;
+    }
+  }
+}
+
+/* Dropdown Mobile */
+#dropdown-mobile {
+  display: block;
+  position: absolute;
+  top: 62px;
+  transition: margin-top 0.5s ease;
+  margin-top: -500px;
+  z-index: -100;
+  background-color: $veryLightGrey;
+  border-top: 1px solid $veryLightGrey;
+
+  .MuiAccordion-root {
+    padding: 0.5rem 0;
+  }
+
+  .MuiAccordion-root.Mui-expanded {
+    margin: 0;
+    border-top: 1px solid $veryLightGrey;
+    border-bottom: 1px solid $veryLightGrey;
+  }
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  margin-top: 0px;
+}
+
+.dropdown:hover .dropbtn {
+  border-bottom: 2px solid red;
+  background-color: white;
+  opacity: 1;
+}
+
+.MuiButton-endIcon {
+  transition: transform 0.5s ease;
+}
+
+.dropdown:hover .dropbtn .MuiButton-endIcon {
+  transform: rotate(180deg);
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

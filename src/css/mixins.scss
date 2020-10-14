@@ -1,0 +1,62 @@
+/* Headers */
+@mixin h1 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH1Interact;
+  line-height: $fontSizeH1Interact;
+  text-align: center;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 2.25;
+    line-height: $fontSizeBodyInteract * 2.25;
+  }
+}
+@mixin h2 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH2Interact;
+  line-height: $fontSizeH1Interact;
+  font-weight: 400;
+  color: $bodyDark;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 1.5;
+    line-height: $fontSizeBodyInteract * 2;
+  }
+}
+@mixin h3 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH3Interact;
+  line-height: $fontSizeH1Interact;
+  font-weight: bold;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract * 1.5;
+    line-height: $fontSizeBodyInteract * 1.5;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@mixin h4 {
+  font-family: $fontFamilyHeaders;
+  font-size: $fontSizeH4Interact;
+  line-height: $fontSizeH1Interact;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeH4Interact;
+    line-height: $fontSizeH4Interact;
+  }
+}
+@mixin subheading {
+  font-family: $fontFamilyAll;
+  font-size: $fontSizeH3Interact;
+  line-height: $fontSizeH3Interact;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract;
+    line-height: $fontSizeBodyInteract * 1.5;
+  }
+}
+@mixin body {
+  font-family: $fontFamilyAll;
+  font-size: $fontSizeBodyInteract;
+  line-height: $fontSizeBodyInteract * 2;
+  color: $bodyLight;
+  @media (max-width: $mobile) {
+    font-size: $fontSizeBodyInteract;
+    line-height: $fontSizeBodyInteract * 2;
+  }
+}

@@ -1,0 +1,23 @@
+#resources {
+  .resourceCard {
+    padding: 0 2rem;
+
+    .cardIcon {
+      font-size: 4rem;
+      color: $primaryColor;
+      margin: 1rem 0;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      line-height: 2rem;
+      color: $bodyDark;
+    }
+
+    p {
+      line-height: 2rem;
+      margin-bottom: 0;
+    }
+  }
+}

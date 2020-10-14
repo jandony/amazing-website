@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// Utilities
 import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+// Material UI Components
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import Zoom from "@material-ui/core/Zoom";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Grid from "@material-ui/core/Grid";
+
+// Custom Components
+import DropdownDesktop from "./DropdownDesktop";
+import DropdownMobile from "./DropdownMobile";
 
 const useStyles = makeStyles((theme) => ({
   scrollBtn: {
@@ -33,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
     margin: "0 auto",
-    minWidth: "85%",
-    maxWidth: "768px",
+    maxWidth: "1440px",
     backgroundColor: "white",
   },
   toolbar: {
@@ -49,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mobileToolbar: {
     justifyContent: "space-between",
+    backgroundColor: "white",
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
@@ -108,7 +116,68 @@ function ScrollTop(props) {
 }
 
 export default function Navbar(props) {
+  // Variables
   const classes = useStyles();
+  const [drawerState, setDrawerState] = useState(false);
+
+  // Mobile dropdown drawer
+  const openDrawer = () => {
+    if (!drawerState) {
+      setDrawerState(true);
+      document.getElementById("dropdown-mobile").style.marginTop = "0px";
+    } else {
+      setDrawerState(false);
+      document.getElementById("dropdown-mobile").style.marginTop = "-500px";
+    }
+  };
+
+  // WP REST API Variables
+  const [posts, setPosts] = useState([]);
+  const [pages, setPages] = useState([]);
+  const [menu, setMenu] = useState([]);
+
+  // Get WP Posts
+  const getPosts = () => {
+    fetch(`http://localhost:8888/ReactWP/wp-json/wp/v2/posts?_embed`)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        setPosts(responseJSON);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // Get WP Pages
+  const getPages = () => {
+    fetch(`http://localhost:8888/ReactWP/wp-json/wp/v2/pages?_embed`)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        setPages(responseJSON);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // Get WP Menu
+  const getMenu = () => {
+    fetch(`http://localhost:8888/reactwp/wp-json/wp-api-menus/v2/menus/2`)
+      .then((response) => response.json())
+      .then((responseJSON) => {
+        setMenu(responseJSON);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getPosts();
+    getPages();
+    getMenu();
+    console.log(menu);
+  });
 
   return (
     <React.Fragment>
@@ -129,10 +198,15 @@ export default function Navbar(props) {
             edge="start"
             className={classes.menuButton}
             aria-label="menu"
+            onClick={() => openDrawer()}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
+        <DropdownMobile
+          drawerState={drawerState}
+          setDrawerState={setDrawerState}
+        />
 
         {/* Tablet & Desktop Navbar */}
         <Toolbar className={classes.toolbar}>
@@ -146,65 +220,24 @@ export default function Navbar(props) {
             </Button>
           </Link>
           <div id="nav-items">
-            <div class="dropdown">
+            <div className="dropdown">
               <Button
                 className={`${classes.navItem} dropbtn`}
                 endIcon={<KeyboardArrowDownIcon />}
               >
                 Products
               </Button>
-
-              <div class="dropdown-content">
-                <Grid container spacing={1}>
-                  <Grid item lg={3}>
-                    <Grid container className="column1" direction="column">
-                      <h3>Products 1</h3>
-                      <a href="https://www.google.com/">Link 1</a>
-                      <a href="https://www.google.com/">Link 2</a>
-                      <a href="https://www.google.com/">Link 3</a>
-                    </Grid>
-                  </Grid>
-
-                  <Grid item lg={3}>
-                    <Grid container className="column2" direction="column">
-                      <h3>Products 2</h3>
-                      <a href="https://www.google.com/">Link 1</a>
-                      <a href="https://www.google.com/">Link 2</a>
-                      <a href="https://www.google.com/">Link 3</a>
-                    </Grid>
-                  </Grid>
-
-                  <Grid item lg={3}>
-                    <Grid container className="column3" direction="column">
-                      <h3>Products 3</h3>
-                      <a href="https://www.google.com/">Link 1</a>
-                      <a href="https://www.google.com/">Link 2</a>
-                      <a href="https://www.google.com/">Link 3</a>
-                    </Grid>
-                  </Grid>
-
-                  <Grid item lg={3}>
-                    <Grid container className="column4" direction="column">
-                      <h3>Products 4</h3>
-                      <a href="https://www.google.com/">Link 1</a>
-                      <a href="https://www.google.com/">Link 2</a>
-                      <a href="https://www.google.com/">Link 3</a>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </div>
-              {/* dropdown-content */}
+              <DropdownDesktop />
             </div>
-            {/* dropdown */}
 
-            <div class="dropdown">
+            <div className="dropdown">
               <Button
                 className={`${classes.navItem} dropbtn`}
                 endIcon={<KeyboardArrowDownIcon />}
               >
                 Resources
               </Button>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <Grid container spacing={1}>
                   <Grid item lg={3}>
                     <Grid container className="column1" direction="column">
@@ -264,12 +297,16 @@ export default function Navbar(props) {
           </div>
         </Toolbar>
       </AppBar>
-      <Toolbar id="back-to-top-anchor" />
+      {/* <Toolbar id="back-to-top-anchor" />
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
-      </ScrollTop>
+      </ScrollTop> */}
+
+      {/* {menu.items.map((post, index) => {
+        return <p key={index}>{post.title}</p>;
+      })} */}
     </React.Fragment>
   );
 }

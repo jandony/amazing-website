@@ -1,0 +1,31 @@
+#copyright {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  @media (max-width: $mobile) {
+    position: relative;
+    padding: 0.1rem;
+  }
+
+  #copyrightMobile {
+    display: none;
+    @media (max-width: $mobile) {
+      display: block;
+    }
+  }
+
+  #copyrightDesktop {
+    display: block;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+  p {
+    line-height: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
