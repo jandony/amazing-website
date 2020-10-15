@@ -119,6 +119,7 @@ export default function Navbar(props) {
   // Variables
   const classes = useStyles();
   const [drawerState, setDrawerState] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   // Mobile dropdown drawer
   const openDrawer = () => {
@@ -138,7 +139,7 @@ export default function Navbar(props) {
 
   // Get WP Posts
   const getPosts = () => {
-    fetch(`http://localhost:8888/ReactWP/wp-json/wp/v2/posts?_embed`)
+    fetch(`http://www.jeffandony.com/wp-json/wp/v2/posts?_embed`)
       .then((response) => response.json())
       .then((responseJSON) => {
         setPosts(responseJSON);
@@ -150,7 +151,7 @@ export default function Navbar(props) {
 
   // Get WP Pages
   const getPages = () => {
-    fetch(`http://localhost:8888/ReactWP/wp-json/wp/v2/pages?_embed`)
+    fetch(`http://www.jeffandony.com/wp-json/wp/v2/pages?_embed`)
       .then((response) => response.json())
       .then((responseJSON) => {
         setPages(responseJSON);
@@ -162,10 +163,11 @@ export default function Navbar(props) {
 
   // Get WP Menu
   const getMenu = () => {
-    fetch(`http://localhost:8888/reactwp/wp-json/wp-api-menus/v2/menus/2`)
+    fetch(`http://www.jeffandony.com/wp-json/wp-api-menus/v2/menus/16`)
       .then((response) => response.json())
       .then((responseJSON) => {
         setMenu(responseJSON);
+        console.log(responseJSON);
       })
       .catch((error) => {
         console.log(error);
@@ -173,11 +175,17 @@ export default function Navbar(props) {
   };
 
   useEffect(() => {
-    getPosts();
-    getPages();
-    getMenu();
-    console.log(menu);
-  });
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (loaded) {
+      getPosts();
+      getPages();
+      getMenu();
+      console.log(menu);
+    }
+  }, [loaded]);
 
   return (
     <React.Fragment>
