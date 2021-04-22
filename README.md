@@ -29,5 +29,3 @@ _by Jeffrey Andony_
 7. Video backgrounds
 8. Social media sign ins
 9. Parallax scrolling
-
-## Updating the ReadMe File
